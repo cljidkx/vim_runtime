@@ -47,7 +47,7 @@ nmap <C-n> <Plug>yankstack_substitute_newer_paste
 let g:ctrlp_working_path_mode = 0
 
 " Quickly find and open a file in the current working directory
-let g:ctrlp_map = '<C-f>'
+"let g:ctrlp_map = '<C-f>'
 map <leader>j :CtrlP<cr>
 
 " Quickly find and open a buffer
@@ -167,6 +167,31 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 
+
+"->taglist浏览插件配置=========================================     
+"taglist窗口显示在右侧，缺省为左侧     
+let Tlist_Use_Right_Window=1    
+"设置ctags路径"将taglist与ctags关联     
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'     
+"启动vim后自动打开taglist窗口     
+let Tlist_Auto_Open = 1     
+"不同时显示多个文件的tag，只显示当前文件的     
+"不同时显示多个文件的tag，仅显示一个     
+let Tlist_Show_One_File = 1     
+"taglist为最后一个窗口时，退出vim     
+let Tlist_Exit_OnlyWindow = 1
+"let Tlist_Use_Right_Window =1     
+"设置taglist窗口大小     
+"let Tlist_WinHeight = 100     
+let Tlist_WinWidth = 40     
+"设置taglist打开关闭的快捷键F8     
+noremap <F8> :TlistToggle<CR>     
+"更新ctags标签文件快捷键设置     
+noremap <F6> :!ctags -R<CR>     
+
+"<-taglist========================================= 
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -186,3 +211,8 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " Copy the link to the line of a Git repository to the clipboard
 nnoremap <leader>v :.GBrowse!<CR>
 xnoremap <leader>v :GBrowse!<CR>
+
+
+let g:ycm_global_ycm_extra_conf='~/.vim_runtime/my_plugins/.ycm_extra_conf.py'
+"let g:ycm_confirm_extra_conf = 0
+
